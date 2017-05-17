@@ -143,8 +143,9 @@ class ViewController: UIViewController, UITextFieldDelegate{
         B1STYLING.layer.cornerRadius=7;
         B2STYLING.layer.cornerRadius=7;
         UPDATE_STYLING.layer.cornerRadius=7;
-        DataMeter.layer.cornerRadius=100
-        //location.layer.cornerRadius=10
+        DataMeter.layer.cornerRadius=4
+        DataMeter.layer.masksToBounds=true
+        //location.layer.cornerRadius=100
         //NSNotificationCenter is added here to observe (it's a "listener"...LISTENER...sigh...apple...anyway) messages broadcast and respond to any "update" message sent to it by calling the updateLabels method in this file
         NotificationCenter.default.addObserver(self, selector: #selector(updateLabels), name: NSNotification.Name(rawValue: "update"), object: nil)
         //This is still here, simply in case necessary later
