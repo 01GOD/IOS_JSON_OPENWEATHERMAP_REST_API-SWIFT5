@@ -24,6 +24,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCATION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FqZ-HC-M4u">
                                 <rect key="frame" x="0.0" y="50" width="320" height="50"/>
+                                <color key="backgroundColor" red="0.42352941179999998" green="0.0" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Cms-fd-rsK"/>
                                 </constraints>
@@ -33,8 +34,9 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEMPERATURE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uk0-oM-iUZ">
                                 <rect key="frame" x="0.0" y="123" width="320" height="50"/>
+                                <color key="backgroundColor" red="0.42352941176470588" green="0.0" blue="0.42745098039215684" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="saK-sG-eA0">
@@ -71,7 +73,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="B1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eQo-2X-s9s"/>
+                                    <action selector="B1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qyR-h6-PwM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0T-jc-8T9">
@@ -131,15 +133,18 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="B1STYLING" destination="oWO-P6-XJK" id="IvB-vK-1vj"/>
+                        <outlet property="B2STYLING" destination="r0T-jc-8T9" id="Eri-ig-kQM"/>
                         <outlet property="DataMeter" destination="x0Z-9A-9Kj" id="Ndw-T9-1Zd"/>
                         <outlet property="TextFieldOutlet" destination="5ID-l0-V5B" id="f7h-jZ-Rgf"/>
+                        <outlet property="UPDATE_STYLING" destination="saK-sG-eA0" id="hvT-9Z-RFE"/>
                         <outlet property="location" destination="FqZ-HC-M4u" id="CzL-6j-SFl"/>
                         <outlet property="temperature" destination="uk0-oM-iUZ" id="Kin-W2-Vv3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-131" y="6"/>
+            <point key="canvasLocation" x="133" y="-150"/>
         </scene>
     </scenes>
 </document>

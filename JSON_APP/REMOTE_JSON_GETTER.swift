@@ -16,7 +16,7 @@ class REMOTE_JSON_GETTER {
     //URL
     let openWeatherMapBaseURL = "http://api.openweathermap.org/data/2.5/weather"
     //API Key
-    let openWeatherMapAPIKey = "06663241e2affc7c1eaa4d87168f4b3c"
+    let openWeatherMapAPIKey = "API_KEY_SHOULD_BE_HERE"
     //Temp units
     var units="metric"
     //enum units: String {

@@ -40,19 +40,21 @@ class ViewController: UIViewController, UITextFieldDelegate{
     // MARK: Buttons
     // -----------------------------------
     //Button to make Celsius display
-    @IBAction func B1(_ sender: Any) {
-        JSON_BOT.units="metric"
+    @IBAction func B1(_ sender: UIButton) {JSON_BOT.units="metric"
         unitsDisplay="°C"
         if(cityToSearch != ""){JSON_BOT.getWeather(city:self.cityToSearch)}
         
     }
+
+    @IBOutlet var B1STYLING: UIButton!
     //Button to make imperial display
-    @IBAction func B2(_ sender: Any) {
+    @IBAction func B2(_ sender: UIButton) {
         JSON_BOT.units="imperial"
         unitsDisplay="°F"
         if(cityToSearch != ""){JSON_BOT.getWeather(city:self.cityToSearch)}
     }
     
+    @IBOutlet var B2STYLING: UIButton!
     // MARK: Labels and text fields
     // -----------------------------------
     //Location label
@@ -68,7 +70,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
     
     // MARK: Button to update
     // -----------------------------------
-    @IBAction func UPDATE(_ sender: Any) {
+    @IBAction func UPDATE(_ sender: UIButton) {
         //Get city to search from text field
         cityToSearch=TextFieldOutlet.text!
         
@@ -97,6 +99,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
     
     // MARK: Meter to show a graphical view
     // -----------------------------------
+    @IBOutlet var UPDATE_STYLING: UIButton!
     //Data meter
     @IBOutlet var DataMeter: UIProgressView!{
         didSet{
@@ -136,6 +139,12 @@ class ViewController: UIViewController, UITextFieldDelegate{
         return true
     }
     override func viewDidLoad() {
+        //location.layer.backgroundColor=UIColor.purple.cgColor
+        B1STYLING.layer.cornerRadius=7;
+        B2STYLING.layer.cornerRadius=7;
+        UPDATE_STYLING.layer.cornerRadius=7;
+        DataMeter.layer.cornerRadius=100
+        //location.layer.cornerRadius=10
         //NSNotificationCenter is added here to observe (it's a "listener"...LISTENER...sigh...apple...anyway) messages broadcast and respond to any "update" message sent to it by calling the updateLabels method in this file
         NotificationCenter.default.addObserver(self, selector: #selector(updateLabels), name: NSNotification.Name(rawValue: "update"), object: nil)
         //This is still here, simply in case necessary later
