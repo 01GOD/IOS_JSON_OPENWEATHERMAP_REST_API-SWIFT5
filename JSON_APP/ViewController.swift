@@ -145,6 +145,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
         UPDATE_STYLING.layer.cornerRadius=7;
         DataMeter.layer.cornerRadius=4
         DataMeter.layer.masksToBounds=true
+        
         //location.layer.cornerRadius=100
         //NSNotificationCenter is added here to observe (it's a "listener"...LISTENER...sigh...apple...anyway) messages broadcast and respond to any "update" message sent to it by calling the updateLabels method in this file
         NotificationCenter.default.addObserver(self, selector: #selector(updateLabels), name: NSNotification.Name(rawValue: "update"), object: nil)
@@ -156,6 +157,9 @@ class ViewController: UIViewController, UITextFieldDelegate{
         self.TextFieldOutlet.delegate = self;
         // Do any additional setup after loading the view, typically from a nib.
     }
+    //Hide the status bar. 
+    override var prefersStatusBarHidden: Bool {return true}
+
 }
 
 // MARK: Previous construction materials and notes here:
