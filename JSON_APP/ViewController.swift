@@ -11,18 +11,18 @@ import UIKit
 class ViewController: UIViewController, UITextFieldDelegate{
     // MARK: Variables and constants
     // -----------------------------------
-    //City name to search for
+    //City name to search for:
     var cityToSearch=""
-    //Display units
+    //Display units:
     var unitsDisplay="°C"
-    //Make an instance of REMOTE_JSON_GETTER class
+    //Make an instance of REMOTE_JSON_GETTER class:
     let JSON_BOT=REMOTE_JSON_GETTER()
     
-    // MARK: Following function called by NSNotification broadcast message from REMOTE_JSON_GETTER class
+    // MARK: Following function is called by NSNotification broadcast message from REMOTE_JSON_GETTER class
     // -----------------------------------
     //Function to update labels when the NSNotification is sent from the REMOTE_JSON_GETTER class
-    func updateLabels(){
-        //This DispatchQueue method is to overcome one of the (sadly many) annoying problems involved in writing IOS apps that is seemingly caused by very lazy or simply underskilled apple "engineers"!!!!!!! This DispatchQueue BS is seemingly to overcome a bug in IOS where the UI was running on a background thread or something...and was updating slowly...apple is WAY overrated. UNITY IS AWESOME!!!!!!
+    @objc func updateLabels(){
+        //This DispatchQueue method is to overcome a bug in IOS where the UI can only run properly on the main thread. If attempting to run UI code on another thread, then the GUI may not update properly.
         DispatchQueue.main.async(execute: {
             // UI Updates
             //Reformat the Double in the REMOTE_JSON_GETTER to a string with single decimal place format
@@ -138,7 +138,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
         
         return true
     }
-    override func viewDidLoad() {
+    override func viewDidLoad() {super.viewDidLoad()
         //location.layer.backgroundColor=UIColor.purple.cgColor
         B1STYLING.layer.cornerRadius=7;
         B2STYLING.layer.cornerRadius=7;
@@ -147,12 +147,12 @@ class ViewController: UIViewController, UITextFieldDelegate{
         DataMeter.layer.masksToBounds=true
         
         //location.layer.cornerRadius=100
-        //NSNotificationCenter is added here to observe (it's a "listener"...LISTENER...sigh...apple...anyway) messages broadcast and respond to any "update" message sent to it by calling the updateLabels method in this file
+        //NSNotificationCenter is added here to observe (AKA: LISTEN FOR) messages broadcast and respond to any "update" message sent to it by calling the updateLabels method in this file
         NotificationCenter.default.addObserver(self, selector: #selector(updateLabels), name: NSNotification.Name(rawValue: "update"), object: nil)
         //This is still here, simply in case necessary later
         //Call the json getter
         //JSON_BOT.getWeather(city:self.cityToSearch)
-        super.viewDidLoad()
+        
         //Make this file the delegate of the UITextField
         self.TextFieldOutlet.delegate = self;
         // Do any additional setup after loading the view, typically from a nib.
@@ -175,7 +175,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
 //        locationManager.startUpdatingLocation()
 //        extractData(weatherData: data!)
 //    }
-////
+//
 //    let openWeatherMapBaseURL = "http://api.openweathermap.org/data/2.5/weather"
 //    let openWeatherMapAPIKey = "06663241e2affc7c1eaa4d87168f4b3c"
 //
